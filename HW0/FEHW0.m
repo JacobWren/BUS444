@@ -91,4 +91,3 @@ if swtWrite == 1;
    csvwrite('/Volumes/BUS444/BUS444/HW0/GradeBookOutput.csv', OutputData);
    
 end;
-
