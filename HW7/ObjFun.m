@@ -1,7 +1,6 @@
 function obj = ObjFun(w)
 
  ReturnDataIn = csvread('/Users/jakewren/Documents/MATLAB/BUS444/CoBPort.csv',1,0);
- % ReturnDataIn = readtable('/Users/jakewren/Documents/MATLAB/BUS444/CoBPort.csv');
  
 ReturnData = ReturnDataIn; 
 CleanReturns = all(ReturnData >= -1, 2); % A logical with 0/1's. 1's are for rows ...
