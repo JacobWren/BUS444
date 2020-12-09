@@ -46,12 +46,8 @@ format short g; % set the way numbers are displayed on the screen
 %*********************************************************************
 
 
- 
-% GradeDataIn = csvread('/Users/jakewren/Documents/MATLAB/BUS444/grades.csv');
+GradeDataIn = csvread('/Volumes/BUS444/BUS444/HW0/grades.csv');
 	
-% GradeDataIn = csvread('/Volumes/BUS444/BUS444/HW0/grades.csv');
-	
-
 GradeDataIn = csvread('e:\bus444\hw0\Grades.csv');
 
 ComputationStorage = zeros(swtNumStudents, 2) - 9.999; 
@@ -91,12 +87,8 @@ OutputData = [ GradeDataIn  ComputationStorage ]
 % leave off semi-colon to show to screen
 
 if swtWrite == 1;
-   % csvwrite('/Users/jakewren/Documents/MATLAB/BUS444/GradeBookOutput.csv',
-   % OutputData);
+  
+   csvwrite('/Volumes/BUS444/BUS444/HW0/GradeBookOutput.csv', OutputData);
    
-    % csvwrite('/Volumes/BUS444/BUS444/HW0/GradeBookOutput.csv', OutputData);
-   
-   csvwrite('e:\bus444\hw0\GradeBookOutput.csv', OutputData);
-
 end;
 
