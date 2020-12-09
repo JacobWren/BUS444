@@ -1,7 +1,7 @@
 % Financial Engineering Homework #7
 % This version (7C) has complex constraints
 % Versioin 7D has simple constraints.  Good to demo both.
-% Author LRG
+% Author JW
 % Does portfolio optimization
 
 clear all;  % reset ram 
@@ -168,8 +168,6 @@ if isequal(size(swtMaxWt),[1,1]);
 end;
 
 
-
-
 % ERNode = [.05:.01:.06];
 % find the weights that minimize variance for each expected return
 for i=1:length(ERNode);
@@ -267,8 +265,7 @@ end;
 
 
 if swtWrite == 1;
-    % csvwrite('/Users/jakewren/Documents/MATLAB/BUS444/WStar.out.csv', WStarSave);   
-    % csvwrite('/Volumes/JACOBWREN/BUS444/HW7/WStar.out.csv', WStarSave);
-    csvwrite('e:\bus444\hw7\WStar.out.csv', WStarSave);
-end;
 
+    csvwrite('/Volumes/JACOBWREN/BUS444/HW7/WStar.out.csv', WStarSave);
+
+end;
