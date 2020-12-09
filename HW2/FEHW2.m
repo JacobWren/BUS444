@@ -21,9 +21,6 @@ clear all;  % reset ram
 clc;  % clear the output screen
 
 
-% Add location of LG's custom .m files to the search PATH
-% path('c:\code\matlab\larrylib', path);   
-
 format long g;   % set the way numbers are displayed to the screen 
                  % type:   help format at the >> prompt for more info
                  % see also:  format short g
@@ -90,7 +87,6 @@ swtEstYC1 = 8;  % N= estimate the yield curve at year N
 
 InputMatx = csvread('strips.csv') ;   % this is of dim 29x2, via WSJ data
 % InputMatx = csvread('/Users/jakewren/Documents/MATLAB/BUS444/strips.csv');
-
 
 
 % check  for missing data - we require data spaced 12 months apart 
@@ -223,16 +219,16 @@ end;
 if swtForw1 ~= 0;
 k = 28 - swtForw1;
 for i = 1:k;
-F(i,2) =   (( ((1 + YTM1Yr(i+swtForw1,2)) ^(swtForw1+i))  / ((1 + YTM1Yr(i,2))^(i)) ) ^(1/swtForw1) ) -1;
-F(i,1) = i;
+F(i, 2) =   (( ((1 + YTM1Yr(i + swtForw1, 2)) ^ (swtForw1+i))  / ((1 + YTM1Yr(i, 2))^(i)) ) ^(1 / swtForw1) ) - 1;
+F(i, 1) = i;
 end;
-first = YTM1Yr(swtForw1,2);
+first = YTM1Yr(swtForw1, 2);
 first2 = [0 first];
 ForRates = vertcat(first2, F);
 end;
 
 if swtForwPlot == 1;
-    plot(ForRates(:,1),ForRates(:,2));  % plot forward curve 
+    plot(ForRates(:, 1),ForRates(:, 2));  % plot forward curve 
     axis([0 30 0 0.10]);  % sets lower and upper limits for x and y axis.
     xlabel('Years (t=0 is now)');
     ylabel('Forward Rate');
@@ -249,13 +245,13 @@ end;
 if swtEstYC1 ~= 0;
 j = 28 - swtEstYC1;
 for i = 1:j;
-EstYC(i,2) =   (( ((1 + YTM1Yr(i+swtEstYC1,2)) ^(i+swtEstYC1))  / ((1 + YTM1Yr(swtEstYC1,2))^(swtEstYC1)) ) ^(1/i) ) -1;
-EstYC(i,1) = i+swtEstYC1;
+EstYC(i, 2) =   (( ((1 + YTM1Yr(i + swtEstYC1,2 )) ^(i + swtEstYC1))  / ((1 + YTM1Yr(swtEstYC1, 2)) ^ (swtEstYC1)) ) ^ (1 / i) ) - 1;
+EstYC(i, 1) = i+swtEstYC1;
 end;
 end;
 
 if swtEstYCPlot == 1;
-    plot(EstYC(:,1),EstYC(:,2));  % plot Est. Yield curve 
+    plot(EstYC(:, 1),EstYC(:, 2));  % plot Est. Yield curve 
     axis([0 30 0 0.10]);  % sets lower and upper limits for x and y axis.
     xlabel('Years');
     ylabel('Estimated Interest Rate as EAR');
@@ -266,14 +262,13 @@ end;
 % handout for more on exactly what you need to do.
 
 if swtForwWrite == 1;
-    % csvwrite('/Users/jakewren/Documents/MATLAB/BUS444/ForwardOut.csv', ForRates);   
-    % csvwrite('/Volumes/JACOBWREN/BUS444/HW2/ForwardOut.csv', ForRates);
-    csvwrite('e:\bus444\hw2\ForwardOut.csv', ForRates);
+
+    csvwrite('/Volumes/JACOBWREN/BUS444/HW2/ForwardOut.csv', ForRates);
+
 end;
 
 if swtEstYCWrite == 1;
-    % csvwrite('/Users/jakewren/Documents/MATLAB/BUS444/ForecastedOut.csv', EstYC);   
-    % csvwrite('/Volumes/JACOBWREN/BUS444/HW2/ForecastedOut.csv', EstYC);
-    csvwrite('e:\bus444\hw2\ForecastedOut.csv', EstYC);
-end;
 
+    csvwrite('/Volumes/JACOBWREN/BUS444/HW2/ForecastedOut.csv', EstYC);
+
+end;
