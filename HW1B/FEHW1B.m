@@ -1,18 +1,14 @@
 % Financial Engineering was HW3A (pre 2019)
 % But is now HW1 / Matlab (2019+)
 % This is clean / works / bug free.
-% Orrig version 1999 04 13 
 % This version 2019 04 14
-% Author:  LRG 
+% Author:  JW
 % Does Capital Budgeting I for different values of P and Q 
 
 
 clear all;  % reset ram 
 clc;  % clear output screen - makes is much easier to debug
 
-
-% Add location of LG's custom .m files to the search PATH
-% path('c:\code\matlab\larrylib', path);   
 
 format bank;  % set the way numbers are displayed to the screen 
    
@@ -70,7 +66,7 @@ swtDeprecLife =  7;       % The Depreciation period (in yrs) to use.
           %  and 45 days via  = 45/365    etc
      
       
- swtWrite = 1;       % 1= write ascii file to disk, 0= don't
+ swtWrite = 1;       % 1 = write ascii file to disk, 0 = don't
 
       
 %*****************************************************************************
@@ -78,16 +74,13 @@ swtDeprecLife =  7;       % The Depreciation period (in yrs) to use.
 %*****************************************************************************
 
 
-
 % build P and Q grid for the loops 
 % These column vectors hold the specific values of P and Q that we'll investigate 
-% PGrid = seqa(swtMinP,(swtMaxP-swtMinP)/(swtGridP-1), swtGridP);  % calls seqa.m 
-% QGrid = seqa(swtMinQ,(swtMaxQ-swtMinQ)/(swtGridQ-1), swtGridQ);  % a custom .m file
 
 
 % Now initialize Matricies for CF from Capital Spending, Operations and changes 
 % in Working Capital.  
-% NPVMat = zeros(swtGridP*swtGridQ,1)-9.999;
+
 d1 = (swtMaxP-swtMinP)/(swtGridP-1); % incrementor in for loop
 d2 = (swtMaxQ-swtMinQ)/(swtGridQ-1); % incrementor in for loop
 P = 1;
@@ -130,11 +123,7 @@ yticks([swtMinQ,swtMaxQ]);
 yticks(swtMinQ:100:swtMaxQ);
 
 if swtWrite == 1;
-    % csvwrite('/Users/jakewren/Documents/MATLAB/BUS444/NPVMatx.csv', NPVMatx);   
-    % csvwrite('/Volumes/JACOBWREN/BUS444/HW1B/NPVMatx.csv', NPVMatx);
-    % csvwrite('e:\bus444\hw0\GradeBookOutput.csv', OutputData);
-    csvwrite('e:\BUS444\HW1B\NPVMatx.csv', NPVMatx);
+
+    csvwrite('/Volumes/JACOBWREN/BUS444/HW1B/NPVMatx.csv', NPVMatx);
+    
 end;
-
-
-
