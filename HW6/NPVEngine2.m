@@ -58,16 +58,16 @@ CFOP(6,c) = CFOP(3,c);
 CFOP(7,c-2) = CFOP(2,c-2) * CFOP(4,c-2);
 CFOP(7,c) = CFOP(2,c) * CFOP(4,c); % Variable Op. Costs/unit in Accounting Terms
 CFOP(8,c-2) = CFCS(3,c-2); 
-CFOP(8,c) = CFCS(3,c);% Depreciation/yr
+CFOP(8,c) = CFCS(3,c); % Depreciation/yr
 CFOP(9,c-2) = (((CFOP(5,c-2) - CFOP(6,c-2) - ... 
                                CFOP(7,c-2) - CFOP(8,c-2)) * (1-swtTaxRate)) ...
                               +CFOP(8,c-2)); 
 CFOP(9,c) = (((CFOP(5,c) - CFOP(6,c) - ... 
                                CFOP(7,c) - CFOP(8,c)) * (1-swtTaxRate)) ...
-                              +CFOP(8,c));% Total: CF from Operations:
+                              +CFOP(8,c)); % Total: CF from Operations:
 end;                        
 %%                         
-CFWC  = zeros(10,swtProjectLife+1);  % CF from changes in Working Capital 
+CFWC  = zeros(10,swtProjectLife+1); % CF from changes in Working Capital 
 
 k = swtProjectLife+1;
 for c = 3:k;
@@ -75,7 +75,7 @@ for c = 3:k;
 CFWC(1,c-2) = swtInvent * CFOP(5,c-1);
 CFWC(1,c) = swtInvent * CFOP(5,c+1); % row 1 = inventory levels
 CFWC(2,c-1) = swtAR * CFOP(5,c-1); 
-CFWC(2,c) = swtAR * CFOP(5,c);  % row 2 = A/R levels 
+CFWC(2,c) = swtAR * CFOP(5,c); % row 2 = A/R levels 
 CFWC(3,c-1) = swtAP * CFOP(5,c-1);
 CFWC(3,c) = swtAP * CFOP(5,c); % row 3 = A/P levels
 CFWC(4,1) = CFWC(1,1);
@@ -100,7 +100,7 @@ CFMC  = zeros(3,swtProjectLife+1);  % CF from changes in Maint Cash (MC)
 k = swtProjectLife+1;
 for c = 3:k;
 CFMC(1,c-1) = CFOP(5,c-1) * swtMC;
-CFMC(1,c) = CFOP(5,c) * swtMC;% Maint Cash Level
+CFMC(1,c) = CFOP(5,c) * swtMC; % Maint Cash Level
 CFMC(2,1) = CFMC(1,1);
 CFMC(2,c-1) = CFMC(1,c-1) - CFMC(1,c-2); % Change in Maint Cash Level
 CFMC(2,swtProjectLife+1) = CFMC(1,swtProjectLife) * -1;
