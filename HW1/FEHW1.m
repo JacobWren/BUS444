@@ -3,7 +3,7 @@
 % This is clean / works / bug free.
 % Orrig version 1999 04 13 
 % This version 2019 04 14
-% Author:  LRG 
+% Author:  JW 
 % Does Capital Budgeting I for different values of P and Q 
 
 
@@ -230,34 +230,7 @@ yticks([swtMinQ,swtMaxQ]);
 yticks(swtMinQ:100:swtMaxQ);
 
 if swtWrite == 1; % write to hardrive
-    % csvwrite('/Users/jakewren/Documents/MATLAB/BUS444/NPVMatx.csv', NPVMatx);   
-    % csvwrite('/Volumes/JACOBWREN/BUS444/HW1/NPVMatx.csv', NPVMatx);
-      csvwrite('e:\bus444\hw1\NPVMatx.csv', NPVMatx);
+
+      csvwrite('/Volumes/JACOBWREN/BUS444/HW1/NPVMatx.csv', NPVMatx);
+
 end;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
