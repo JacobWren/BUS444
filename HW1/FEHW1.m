@@ -1,7 +1,6 @@
 % Financial Engineering was HW3A (pre 2019)
 % But is now HW1 / Matlab (2019+)
 % This is clean / works / bug free.
-% Orrig version 1999 04 13 
 % This version 2019 04 14
 % Author:  JW 
 % Does Capital Budgeting I for different values of P and Q 
