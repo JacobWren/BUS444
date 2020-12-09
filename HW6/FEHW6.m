@@ -1,5 +1,4 @@
 % Financial Engineering HW6
-% This version 19990515
 % Does Capital Budgeting I for different values of P and Q
 %   generated from a multivariate normal distribution (Monte Carlo)
 
@@ -8,8 +7,6 @@ clear all;  % reset ram
 clc;  % clear the screen
 
 format bank;  % set the way numbers are displayed 
-
-%path('c:\code\matlab\larrylib', path);
 
 
 %*************************** BEGIN CONTROL PANEL *****************************
@@ -156,7 +153,7 @@ if swtPrtNPV == 1;
 end;
 
 if swtPrtFile == 1;
-    % csvwrite('/Users/jakewren/Documents/MATLAB/BUS444/ForecastedOut.csv', EstYC);   
-    % csvwrite('/Volumes/JACOBWREN/BUS444/HW6/OutMatrix.csv', OutMatrix);
-      csvwrite('e:\bus444\HW6\OutMatrix.csv', OutMatrix);
+ 
+      csvwrite('/Volumes/JACOBWREN/BUS444/HW6/OutMatrix.csv', OutMatrix);
+
 end;
